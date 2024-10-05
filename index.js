@@ -1,6 +1,9 @@
 import express from "express";
 import bodyParser from "body-parser";
 
+
+let newUserId = 130;
+
 class Product {
   constructor(id, name, desc, seller_id, price) {
     this.id = id;
@@ -18,6 +21,7 @@ class User {
   constructor(id, name, password) {
     this.id = id;
     this.name = name;
+    this.password = password;
   }
   display() {
     console.log(`id: ${this.id} name: ${this.name} password:${thils.password}`);
@@ -77,3 +81,56 @@ app.get("/", (req, res) => {
 app.get("/login", (req, res) => {
     res.render("login.ejs");
 })
+
+
+app.post("/login", (req, res) => {
+    console.log(req.body);
+    const curr_pass = req.body.password;
+    const curr_name = req.body.name;
+    console.log(curr_name, curr_pass);
+  
+    const selectedUser = users.find(
+      (user) => user.name === curr_name && user.password === curr_pass
+    );
+  
+    console.log(selectedUser);
+    if (!selectedUser) {
+      return res.status(500).json({message: "User not Found😢"});
+    }
+    res.status(200).json(selectedUser);
+  });
+  //--------------------------------------------------------------
+  app.post("/signup", (req, res) => {
+    const myname = req.body.name;
+    const mypassword = req.body.password;
+  
+    // Basic validation
+    if (!myname || !mypassword) {
+      return res.status(400).json({message: "Password and Name required"});
+    }
+  
+    // Check if the user already exists
+    const existingUser = users.find((user) => user.name === myname);
+    if (existingUser) {
+      return res.status(409).json({message: "User Already exist"});
+    }
+  
+    // Create a new user
+    newUserId++;
+    const newUser = {newUserId, myname, mypassword};
+    users.push(newUser);
+  
+    // Send success response
+    res.status(201).json({message: "User registerd Succesfully"});
+  });
+  
+  app.get("/api/users", (req, res) => {
+    res.status(200).send(users);
+  });
+  
+  app.get("/api/products", (req, res) => {
+    res.status(200).send(products);
+  });
+
+/////
+
