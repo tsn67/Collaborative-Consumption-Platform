@@ -28,6 +28,7 @@ const port = 3000;
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
 
 app.listen(port, () => {
   console.log("The server start at port " + port);
