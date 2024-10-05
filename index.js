@@ -1,5 +1,14 @@
 import express from "express";
 import bodyParser from "body-parser";
+import passport from "passport";
+import {Strategy as GoogleStrategy} from "passport-google-oauth20";
+import session from "express-session";
+
+import dotenv from 'dotenv';
+dotenv.config();
+
+const googleClientId = process.env.GOOGLE_CLIENT_ID;
+const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
 
 let newUserId = 130;
 
@@ -27,41 +36,7 @@ class User {
   }
 }
 
-const user1 = new User(100, "Alice", "password");
-const user2 = new User(101, "Bob", "password");
-const user3 = new User(102, "Charlie", "password");
-const user4 = new User(103, "Alice", "password");
 
-const product1 = new Product(
-  200,
-  "Laptop",
-  "High-performance laptop",
-  100,
-  1200
-);
-const product2 = new Product(
-  201,
-  "Smartphone",
-  "Latest smartphone with 5G",
-  101,
-  800
-);
-const product3 = new Product(
-  202,
-  "Headphones",
-  "Noise-cancelling headphones",
-  102,
-  150
-);
-const product4 = new Product(
-  203,
-  "Headphones",
-  "Noise-cancelling headphones",
-  103,
-  150
-);
-const users = [user1, user2, user3, user4];
-const products = [product1, product2, product3, product4];
 
 const port = 3000;
 const app = express();
@@ -77,23 +52,13 @@ app.get("/", (req, res) => {
   res.render("index.ejs");
 });
 
-app.post("/login", (req, res) => {
+var testUser = null;
+app.post("/login-submit", (req, res) => {
   console.log(req.body);
-  const curr_pass = req.body.password;
-  const curr_name = req.body.name;
-  console.log(curr_name, curr_pass);
-
-  const selectedUser = users.find(
-    (user) => user.name === curr_name && user.password === curr_pass
-  );
-
-  console.log(selectedUser);
-  if (!selectedUser) {
-    return res.status(500).json({message: "User not Found😢"});
-  }
-  res.status(200).json(selectedUser);
+  //testUser = new User(newUserId++, req.body.email, req.body.password);
+  res.render("profile.ejs");
 });
-//--------------------------------------------------------------
+
 app.post("/signup", (req, res) => {
   const myname = req.body.name;
   const mypassword = req.body.password;
@@ -132,7 +97,6 @@ app.get("/login", (req, res) => {
   },1100);
 });
 
-
 app.get("/contacts", (req, res) => {
   res.render("contacts.ejs");
 });
@@ -140,3 +104,79 @@ app.get("/about", (req, res) => {
   res.render("about.ejs");
 });
 
+app.use(
+    session({
+      secret: "your-secret-key",
+      resave: false,
+      saveUninitialized: true,
+    })
+);
+  
+// Passport middleware setup
+app.use(passport.initialize());
+app.use(passport.session());
+  
+  passport.serializeUser((user, done) => {
+    done(null, user);
+  });
+  
+  // Deserialize user from session
+  passport.deserializeUser((user, done) => {
+    done(null, user);
+  });
+
+  
+
+  passport.use(
+    new GoogleStrategy(
+      {
+        clientID:
+          //"627938274801-9b1508k5ld0bgi7k7kjtupg76m5e8a0l.apps.googleusercontent.com",
+            googleClientId,
+        clientSecret: 
+        //"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",
+            googleClientSecret,
+        callbackURL: "http://localhost:3000/auth/google/callback",
+      },
+      (accessToken, refreshToken, profile, done) => {
+        // Handle user profile here
+        return done(null, profile);
+      }
+    )
+  );
+  
+app.get(
+    "/auth/google",
+    passport.authenticate("google", {
+      scope: ["profile", "email"],
+    })
+  );
+app.get(
+    "/auth/google/callback",
+    passport.authenticate("google", {
+      failureRedirect: "/login",
+    }),
+    (req, res) => {
+      // Successful authentication
+      res.redirect("/profile");
+    }
+);
+  
+app.get("/profile", (req, res) => {
+    if (req.isAuthenticated()) {
+      res.send("profile.ejs");
+    } else {
+      res.redirect("/login");
+    }
+});
+  
+  // Logout route
+app.get("/logout", (req, res) => {
+    req.logout();
+    res.redirect("/");
+});
+  
+app.get("/auth/google", (req, res) => {
+    console.log(req.body);
+    //res.render("login-success.ejs");
+});

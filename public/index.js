@@ -13,6 +13,7 @@ function handleGetRequest(url) {
   }
 }
 
-$(".div-move").mouseenter(() => {
-    
+var googleLogin = $(".img-container");
+googleLogin.click(() => {
+    window.location.href = "/auth/google";
 });

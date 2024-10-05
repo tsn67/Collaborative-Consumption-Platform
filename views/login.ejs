@@ -1,1 +1,50 @@
-<h1>Testing Login</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Login</h2>
+
+            <form action="/login-submit" method="post">
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="username" id="email" name="email" required placeholder="Enter your username">
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                </div>
+                <div class="img-container">
+                    <img src="./images/google.png" alt="google-img">
+                    <p style="font-size: 0.7rem;">login with google</p>
+                </div>
+
+                <div class="input-group">
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+
+            <div class="additional-options">
+                <a href="#">Forgot Password?</a>
+                <a href="register.html">Create an account</a>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="animationheader.js"></script>
+    <script src="./index.js"></script>
+
+</body>
+</html>
