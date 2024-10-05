@@ -17,3 +17,12 @@ var googleLogin = $(".img-container");
 googleLogin.click(() => {
     window.location.href = "/auth/google";
 });
+
+var slideDownButton = $(".div-move");
+
+slideDownButton.click(() => {
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: 'smooth' // Enables smooth scrolling
+    });
+});
