@@ -18,9 +18,9 @@ googleLogin.click(() => {
     window.location.href = "/auth/google";
 });
 
-var slideDownButton = $(".div-move");
 
-slideDownButton.click(() => {
+
+document.querySelector('.div-move').addEventListener('click', function() {
     window.scrollTo({
         top: document.body.scrollHeight,
         behavior: 'smooth' // Enables smooth scrolling
