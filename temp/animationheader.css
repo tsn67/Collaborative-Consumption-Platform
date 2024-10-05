@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family:inter;
+}
+
+
+body {
+    background-image: url("photo.jpg");
+    background-size: cover;
+}
+
+.navbar{
+    margin: 0 125px;
+}
+.navbar .logo a{
+    font-size: 1.75rem;
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+}
+
+.navbar ul{
+     list-style: none;
+     display: flex;
+     margin-top: 12px;
+}
+
+.navbar ul li{
+    padding: 20px;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: grey;
+    font-size: 1.1rem;
+}
+
+nav ul li a:hover {
+    color: black;
+}
+
+
+
+
+header .typecontainer {
+    height: 3em;
+    margin-top: 5em;
+    margin-bottom: 1.5em;
+}
+
+header .typecontainer h1 {
+    display: inline-block;
+}
+
+
+.navbar ul li .underline{
+    color: black;
+}
+
+
+.info{
+    width: 400px;
+    margin: auto;
+    color: rgb(113, 112, 112);
+    text-align: center;
+    text-shadow: 2px 2px 2px white;
+}
+
+.seemore-button{
+    text-align: center;
+}
