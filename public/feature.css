@@ -13,6 +13,7 @@
     display: grid;
     grid-template-rows: 100px 350px;
     background-color: rgba(245, 242, 206, 0.285);
+    backdrop-filter: blur(3px);
 }
 
 .features h1 {
