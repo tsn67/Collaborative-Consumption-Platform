@@ -67,9 +67,14 @@ app.post("/login-submit", (req, res) => {
   res.render("profile1.ejs");
 });
 
+app.get("/login-submi1", (req, res) => {
+    res.render("profile1.ejs");
+});
 
+var obj = null;
 
 app.get("/profile-submit", (req, res) => {
+   obj = JSON.parse(req.query.data);
    console.log(req.query.data);
    res.render("index-login.ejs");
 })
@@ -187,13 +192,7 @@ app.get(
     }
 );
   
-app.get("/profile", (req, res) => {
-    if (req.isAuthenticated()) {
-      res.send("profile1.html");
-    } else {
-      res.redirect("/login");
-    }
-});
+
   
   // Logout route
 app.get("/logout", (req, res) => {
@@ -204,4 +203,14 @@ app.get("/logout", (req, res) => {
 app.get("/auth/google", (req, res) => {
     console.log(req.body);
     //res.render("login-success.ejs");
+});
+
+app.get("/profile-view", (req, res) => {
+    console.log(obj.email);
+    res.render("user.ejs", {
+        email1: obj.email,
+        name: obj.name,
+        location: obj.location,
+        mobile: obj.phone
+    });
 });

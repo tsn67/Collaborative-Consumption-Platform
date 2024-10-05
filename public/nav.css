@@ -1,9 +1,5 @@
 
-.navbar{
-    margin: 0 125px;
-    display: flex;
-    justify-content: space-between;
-}
+
 .navbar .logo a{
     font-size: 1.75rem;
     text-decoration: none;
@@ -11,9 +7,12 @@
     color: black;
 }
 
+
+
 .navbar ul{
      list-style: none;
      display: flex;
+     
      margin-top: 12px;
 }
 

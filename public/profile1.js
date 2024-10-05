@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const phoneInput = document.getElementById('phone');
     const saveContactInfoBtn = document.getElementById('save-contact-info');
 
-    var userImg = null; // Variable for storing the image
+    var url = null;
 
     // Event listeners
 
@@ -30,10 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const reader = new FileReader();
             reader.onload = () => {
                 profileImg.src = reader.result; // Update the profile image with the uploaded one
-                userImg = file; // Store the file for the form submission
             };
             reader.readAsDataURL(file);
         }
+        const userImg = document.getElementById('profile-img').src;
+        console.log(userImg);
+        url = userImg;
     });
 
     // Save name
@@ -86,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
             "phone": phone,
             "email": email,
             "location": location,
-            "imgurl": userImg,
+            "imgurl": url,
         }
         
 
