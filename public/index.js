@@ -5,10 +5,14 @@ $(".nav-btn").click(function () {
 
 function handleGetRequest(url) {
   if (url == "Login") {
-    window.location.href = "login";
+    window.location.href = "/login";
   } else if (url == "About") {
-    windoq.location.href = "about";
+    window.location.href = "/about";
   } else if (url == "Contact") {
-    window.location.href = "contacts";
+    window.location.href = "/contacts";
   }
 }
+
+$(".div-move").mouseenter(() => {
+    
+});

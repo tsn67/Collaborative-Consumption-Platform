@@ -127,12 +127,16 @@ app.get("/api/products", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-  res.render("login.ejs");
+  setTimeout(()=> {
+    res.render("login.ejs");
+  },1100);
 });
+
+
 app.get("/contacts", (req, res) => {
   res.render("contacts.ejs");
 });
 app.get("/about", (req, res) => {
   res.render("about.ejs");
 });
-/////
+
