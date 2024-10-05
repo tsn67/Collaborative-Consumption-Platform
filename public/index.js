@@ -19,10 +19,19 @@ googleLogin.click(() => {
 });
 
 
-
 document.querySelector('.div-move').addEventListener('click', function() {
     window.scrollTo({
         top: document.body.scrollHeight,
         behavior: 'smooth' // Enables smooth scrolling
     });
+});
+
+var buttonLog = $(".btn-log");
+
+buttonLog.click(() => {
+    window.location.href = "./login?data=login-required";
+});
+
+$(".btn-log-org").click(() => {
+    window.location.href = "./login";
 });

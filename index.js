@@ -53,11 +53,26 @@ app.get("/", (req, res) => {
 });
 
 var testUser = null;
+
+var name = null;
+var bio = null;
+var mobile = null;
+var location = null;
+var email = null;
+var imageUrl = null;
+
 app.post("/login-submit", (req, res) => {
   console.log(req.body);
-  //testUser = new User(newUserId++, req.body.email, req.body.password);
-  res.render("profile.ejs");
+  testUser = new User(newUserId++, req.body.email, req.body.password);
+  res.render("profile1.ejs");
 });
+
+
+
+app.get("/profile-submit", (req, res) => {
+   console.log(req.query.data);
+   res.render("index-login.ejs");
+})
 
 app.post("/signup", (req, res) => {
   const myname = req.body.name;
@@ -92,9 +107,19 @@ app.get("/api/products", (req, res) => {
 });
 
 app.get("/login", (req, res) => {
-  setTimeout(()=> {
-    res.render("login.ejs");
-  },1100);
+ 
+  if(req.query.data) {
+    setTimeout(()=> {
+        res.render("login.ejs", {
+            data: "login required!",
+        });
+    },1100);
+  } else {
+    setTimeout(()=> {
+        res.render("login.ejs");
+      },1100);
+  }
+ 
 });
 
 app.get("/contacts", (req, res) => {
@@ -164,7 +189,7 @@ app.get(
   
 app.get("/profile", (req, res) => {
     if (req.isAuthenticated()) {
-      res.send("profile.ejs");
+      res.send("profile1.html");
     } else {
       res.redirect("/login");
     }

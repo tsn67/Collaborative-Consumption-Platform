@@ -21,7 +21,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="animationheader.css">
-    <link rel="stylesheet" href="feature.css">
+    <link rel="stylesheet" href="feature1.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,29 +29,18 @@
 </head>
 <body>
 
-    <%- include('nav') %>
+    <nav>
+        <div class="navbar">
+          <div class="logo"><a href="#">Consumption Web App</a></div>
+          <ul class="menu">
+            <li><a class="underline nav-btn">Home</a></li>
+            <li><a  class="nav-btn">About</a></li>
+            <li><a  class="nav-btn">Contact</a></li>
+            <li><a class="nav-btn"><span>Profile</span></a></li>
+          </ul>
+        </div>
+    </nav>
     
-    <header style="padding: 2px;">
-        <div class="container typecontainer text-center ">
-            <h1 id="text"></h1>
-        </div>
-        <div class="info">
-            <p>A platform to reduce waste and promote sustainability by sharing goods and services within your community. Join us in building a greener, more connected future.</p>
-        
-            <div class="seemore-button">
-                <button type="button" class="btn btn-success btn-log-org">Get started</button>
-            </div>
-        </div>
-        
-
-        <div class="features-button">
-            <button type="button">
-                <img src="./images/down_arrow.png" alt="image">
-            </button>
-        </div>
-
-        <div class="blur-div div-move"></div>
-    </header>
 
     <div class="container1">
         <div class="features">
@@ -132,12 +121,12 @@
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="animationheader.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="feature.js"></script>
     <script src="./index.js"></script>
+    <script src="./index-login.js"></script>
+    <script src="./feature.js"></script>
 
 </body>
 </html>

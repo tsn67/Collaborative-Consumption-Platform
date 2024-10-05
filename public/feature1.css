@@ -19,12 +19,13 @@
 .features h1 {
     text-align: center;
     margin-top: 0px;
-    color: black;
-    text-shadow: 1px 1px 2px rgb(46, 75, 89);
+    color: transparent;
 }
 
 .card-container {
     display: flex;
+    position: relative;
+    top: -100px;
 }
 
 
@@ -52,8 +53,8 @@
     display: grid;
     align-items: center;
     justify-content: center;
-    background: rgb(245, 242, 206);
-    background-image: url("./images/ultabackground.jpg");
+    background: rgba(245, 242, 206, 0);
+    
     background-repeat: no-repeat;
     background-size: fill;
 }
@@ -63,3 +64,15 @@
     overflow: hidden;
 }
 
+span {
+    color: navy;
+    outline: solid seagreen 1px;
+    padding: 10px;
+    border-radius: 2px;
+    transition: 0.2s ease-in;
+}
+
+span:hover {
+    background: seagreen;
+    color: white;
+}

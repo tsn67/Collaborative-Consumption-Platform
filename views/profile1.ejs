@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile | Collaborative Sharing</title>
+    <link rel="stylesheet" href="profile1.css">
+</head>
+<body>
+
+    <h1></h1>
+
+    <div class="profile-container">
+        <div class="profile-main">
+            <!-- Left: Profile Picture Section -->
+            <div class="profile-img-container">
+                <img src="default-profile.png" alt="Profile Picture" id="profile-img">
+                <input type="file" id="upload-img" style="display: none;">
+                <button id="edit-img-btn">Edit Profile Picture</button>
+            </div>
+
+            <!-- Right: User Info Section -->
+            <div class="user-info">
+                <input type="text" id="username" placeholder="Enter your name">
+                <button id="save-name" class="save-btn">Save Name</button>
+                <textarea id="bio" placeholder="Write something about yourself..."></textarea>
+                <button id="save-bio" class="save-btn">Save Bio</button>
+
+                <!-- Contact Info Section -->
+                <div class="contact-info">
+                    <h3>Contact Info</h3>
+                    <input type="text" id="location" placeholder="Enter your location">
+                    <input type="text" id="email" placeholder="Enter your email">
+                    <input type="text" id="phone" placeholder="Enter your phone number">
+                    <button id="save-contact-info" class="save-btn">Save Contact Info</button>
+                    <button class="submit-btn save-btn">Submit</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="profile1.js"></script>
+</body>
+</html>
