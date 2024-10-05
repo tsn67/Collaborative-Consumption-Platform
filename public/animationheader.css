@@ -9,7 +9,7 @@
 
 
 body {
-    background-image: url("photo.jpg");
+    background-image: url("./images/backgroundtest.jpg");
     background-size: cover;
 }
 
@@ -21,6 +21,10 @@ body {
     text-decoration: none;
     font-weight: 600;
     color: black;
+}
+
+.info p {
+    font-size: 1.2rem;
 }
 
 .navbar ul{
@@ -63,11 +67,14 @@ header .typecontainer h1 {
 
 
 .info{
-    width: 400px;
+    width: 700px;
     margin: auto;
-    color: rgb(113, 112, 112);
+    color: rgb(0, 0, 0);
     text-align: center;
-    text-shadow: 2px 2px 2px white;
+    
+    background: rgba(245, 242, 206, 0.811);
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
 .seemore-button{
@@ -91,7 +98,7 @@ header .typecontainer h1 {
 }
 
 .features-button img {
-    width: 70px;
+    width: 80px;
     transform: translateY(+100px);
     transition: 0.2s ease-in;
     padding: 10px;
@@ -105,7 +112,7 @@ header .typecontainer h1 {
 }
 
 .div-move:hover {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), white);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgb(233, 209, 131));
 }
 
 
