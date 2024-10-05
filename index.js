@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-//
+
 class Product {
   constructor(id, name, desc, seller_id, price) {
     this.id = id;
@@ -23,7 +23,7 @@ class User {
     console.log(`id: ${this.id} name: ${this.name} password:${thils.password}`);
   }
 }
-//
+
 const user1 = new User(100, "Alice", "password");
 const user2 = new User(101, "Bob", "password");
 const user3 = new User(102, "Charlie", "password");
@@ -59,7 +59,7 @@ const product4 = new Product(
 );
 const users = [user1, user2, user3, user4];
 const products = [product1, product2, product3, product4];
-//
+
 const port = 3000;
 const app = express();
 
@@ -74,14 +74,6 @@ app.get("/", (req, res) => {
   res.render("index.ejs");
 });
 
-app.get("/api/users", (req, res) => {
-  res.status(200).send(users);
-});
-
-app.get("/api/products", (req, res) => {
-  res.status(200).send(products);
-});
-/* app.get("/products", (req, res) => {
-  res.status(200).send(product);
-});
- */
+app.get("/login", (req, res) => {
+    res.render("login.ejs");
+})
