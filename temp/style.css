@@ -1,0 +1,28 @@
+body{
+    background-color: #f9f9f9;
+}
+
+.navh{
+    border: 1px solid black;
+    
+}
+
+.logo{
+    text-align: center;
+}
+
+header .typecontainer {
+    height: 9em; 
+    margin-top: 5em;
+    margin-bottom: 1.5em;
+}
+
+header .typecontainer h1{
+    display: inline-block;
+}
+
+.nav{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+}
