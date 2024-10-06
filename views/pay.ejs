@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Now</title>
+    <link rel="stylesheet" href="pay.css">
+</head>
+<body>
+    <div class="buy-now-container">
+        <!-- Seller Details Section -->
+        
+
+        <!-- Payment and Address Form -->
+        <div class="payment-details">
+            <h2>Payment Details</h2>
+
+            <form>
+                <h2>Book Name: <%= locals.name %></h2>
+                <!-- Address Section -->
+                <div class="form-section">
+                    <label for="address">Shipping Address</label>
+                    <textarea id="address" name="address" placeholder="Enter your shipping address" required></textarea>
+                </div>
+
+                <!-- UPI Payment Section -->
+                <div class="form-section">
+                    <label for="upi-id">UPI ID</label>
+                    <input type="text" id="upi-id" name="upi-id" placeholder="Enter your UPI ID" required>
+                </div>
+
+                <div class="form-section">
+                    <label for="payment-amount">Amount</label>
+                    <h3><%= locals.money %></h3>
+                </div>
+
+                <!-- Buy Now Button -->
+                <button type="submit" class="buy-now-btn">Do Payment</button>
+                <button class="buy-now-btn home" style="background: navy; margin-top: 10px;">Home</button>
+            </form>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+            <script src="fictionpage.js"></script>
+        </div>
+    </div>
+</body>
+</html>

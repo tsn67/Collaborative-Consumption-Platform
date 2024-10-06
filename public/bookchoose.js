@@ -5,8 +5,9 @@ const categories = [
     { title: "Mystery", icon: "🕵️", count: 80 },
     { title: "Science Fiction", icon: "🚀", count: 100 },
     { title: "Biography", icon: "👤", count: 60 },
-   
 ];
+
+var selected = [];
 
 function createCategoryCard(category) {
     const card = document.createElement("div");
@@ -33,3 +34,24 @@ function renderCategories() {
 }
 
 renderCategories();
+
+var button = $(".search-btn");
+
+button.click(() => {
+    var cards = $(".selected");
+    
+    // Clear previously selected categories
+    selected = [];
+    
+    // Loop through selected cards
+    cards.each(function() {
+        const title = $(this).find(".category-title").text();  // Get the title of the selected category
+        selected.push(title);  // Add the title to the selected array
+    });
+
+    var obj = {
+        select: selected,
+    }
+    var str = JSON.stringify(obj);
+    window.location.href = `/filter-submit?data=${str}`;
+});

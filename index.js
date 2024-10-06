@@ -11,6 +11,7 @@ const googleClientId = process.env.GOOGLE_CLIENT_ID;
 const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET;
 
 let newUserId = 130;
+var isLogin = false;
 
 class Product {
   constructor(id, name, desc, seller_id, price) {
@@ -64,6 +65,7 @@ var imageUrl = null;
 app.post("/login-submit", (req, res) => {
   console.log(req.body);
   testUser = new User(newUserId++, req.body.email, req.body.password);
+  isLogin = true;
   res.render("profile1.ejs");
 });
 
@@ -74,8 +76,11 @@ app.get("/login-submi1", (req, res) => {
 var obj = null;
 
 app.get("/profile-submit", (req, res) => {
-   obj = JSON.parse(req.query.data);
-   console.log(req.query.data);
+   if(req.query.data) {
+    obj = JSON.parse(req.query.data);
+    console.log(req.query.data);
+   }
+   
    res.render("index-login.ejs");
 })
 
@@ -126,6 +131,9 @@ app.get("/login", (req, res) => {
   }
  
 });
+
+
+
 
 app.get("/contacts", (req, res) => {
   res.render("contacts.ejs");
@@ -212,5 +220,62 @@ app.get("/profile-view", (req, res) => {
         name: obj.name,
         location: obj.location,
         mobile: obj.phone
+    });
+});
+
+app.get("/filter", (req, res) => {
+    res.render("bookchoose.ejs")
+}); 
+
+app.get("/filter-submit", (req, res) => {
+    console.log(req.query.data);
+    var obj = JSON.parse(req.query.data);
+
+    res.render("fictionpage.ejs", {
+        list: obj.select,
+        classes: {
+            one: class1,
+            two: class2,
+            three: class3
+        },
+        authors: {
+            one: author1,
+            two: author2,
+            three: author3
+        },
+        prices: {
+            one: price1,
+            two: price2,
+            three: price3
+        },
+        imgs: {
+            one: img1,
+        }
+
+    });
+
+});
+
+var class1 = ["FLAT", "Education for better future", "Wings of fire"];
+var author1 = ["Hannon", "Macabae", "APJ Abdul Kalam"];
+var price1 = [120, 220, 400];
+
+var class2 = ["Love and Drama", "Tetoyo", "Juliet"];
+var author2 = ["William Armstrong", "Kurso Yanaki", "Casio Dravo"];
+var price2 = [170, 620, 200];
+
+var class3 = ["Rocketry", "Space", "Luna-11"];
+var author3 = ["Dr Ram M", "Jhon Martin", "Maveyo Kalo"];
+var price3 = [570, 90, 300];
+
+var img1 = ["./images/book1.jpg", "./images/book2.jpg", "./images/book3.jpg"];
+
+app.get("/buy", (req, res)=> {
+    var price = req.query.money;
+    var bookName = req.query.name;
+
+    res.render("pay.ejs", {
+        money: price,
+        name: bookName,
     });
 });

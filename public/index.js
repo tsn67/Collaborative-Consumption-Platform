@@ -35,3 +35,9 @@ buttonLog.click(() => {
 $(".btn-log-org").click(() => {
     window.location.href = "./login";
 });
+
+
+var button = $("span");
+button.click(() => {
+    window.location.href = "/profile-view";
+});

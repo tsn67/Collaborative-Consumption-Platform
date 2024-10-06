@@ -13,3 +13,9 @@ imageContainers.forEach((imageContainer) => {
         hoverImage.style.transform = 'scale(1)'; 
     });
 });
+
+var home = $(".home");
+
+home.click(() => {
+    window.location.href = "/profile-submit";
+});

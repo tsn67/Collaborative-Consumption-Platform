@@ -16,3 +16,7 @@ function displayProfile() {
 
 // Call the function when the page loads
 window.onload = displayProfile;
+
+$(".home").click(() => {
+    window.location.href = "/profile-submit";
+});
