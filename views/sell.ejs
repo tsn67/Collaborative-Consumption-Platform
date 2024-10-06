@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell/Rent/Donate Books | Collaborative Sharing</title>
+    <link rel="stylesheet" href="sell.css">
+</head>
+<body>
+    <div class="book-form-container">
+        <h2>Sell Books</h2>
+        
+            <input class="title" type="text" id="book-title" placeholder="Book Title" required>
+            <input class="author" type="text" id="author-name" placeholder="Author Name" required>
+            <input class = "price-val"  type="number" id="price" placeholder="Price"    min="0">
+            <select id="book-category" name="category">
+                <option value="education">Education</option>
+                <option value="romance">Romance</option>
+                <option value="science-fiction">Science Fiction</option>
+                <option value="mystery">Mystery</option>
+                <option value="biography">Biography</option>
+            </select>
+
+            <!-- Image upload input -->
+            <input type="file" id="book-image" accept="image/*" required>
+
+            
+
+            <button type="submit" class="submit-btn submit">Submit</button>
+        
+            <button class="submit-btn home" style="background: navy; margin-top: 15px;">Home</button>
+        
+            <h4 class="output"></h4>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./sell.js"></script>
+</body>
+</html>

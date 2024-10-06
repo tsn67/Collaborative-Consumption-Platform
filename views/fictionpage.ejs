@@ -49,11 +49,15 @@
 
         <% for(let i = 0;i < locals.classes.one.length;i++) { %>
             <div class="card" style="width: 18rem;">
-                <img style="max-height: 200px; object-fit: cover;" class="card-img-top" src="<%= imgs.one[i] %>" alt="Card image cap">
+                <% if(i == locals.classes.one.length-1 && locals.classes.one.length > 3) { %>
+                    <img style="max-height: 200px; object-fit: cover;" class="card-img-top" src="./images/2.jpg" alt="Card image cap">    
+                <% } else {%>
+                    <img style="max-height: 200px; object-fit: cover;" class="card-img-top" src="<%= imgs.one[i] %>" alt="Card image cap">
+                <% }%> 
                 <div class="card-body">
                   <h5 class="card-title"><%= locals.classes.one[i]  %></h5>
                   <p class="card-text"><%= locals.authors.one[i]  %></p>
-                  <h3 style="color: rgb(122, 13, 13);"><%= locals.prices.one[i] %>$</h3>
+                  <h3 style="color: rgb(122, 13, 13);">₹<%= locals.prices.one[i] %></h3>
                   <a href="#" data-name="<%= locals.classes.one[i]%>" data-price="<%= locals.prices.one[i]%>" class="btn btn-success buy" style="width: 70px;">Buy</a>
                 </div>
             </div>
@@ -64,11 +68,11 @@
     <div class="container">
         <% for(let i = 0;i < locals.classes.three.length;i++) { %>
             <div class="card" style="width: 18rem;">
-                <img style="max-height: 200px; object-fit: cover;" class="card-img-top" src="./images/book2.jpg" alt="Card image cap">
+                <img style="max-height: 200px; object-fit: cover;" class="card-img-top" src="<%= locals.imgs.three[i] %>" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title"><%= locals.classes.three[i]  %></h5>
                   <p class="card-text"><%= locals.authors.three[i]  %></p>
-                  <h3 style="color: rgb(122, 13, 13);"><%= locals.prices.three[i] %>$</h3>
+                  <h3 style="color: rgb(122, 13, 13);">₹<%= locals.prices.three[i] %></h3>
                   <a href="#" data-name="<%= locals.classes.three[i]%>" data-price="<%= locals.prices.three[i]%>"class="btn btn-success buy" style="width: 70px;">Buy</a>
                 </div>
             </div>
@@ -80,11 +84,11 @@
 
         <% for(let i = 0;i < locals.classes.two.length;i++) { %>
             <div class="card" style="width: 18rem;">
-                <img style="max-height: 200px; object-fit: cover;" class="card-img-top" src="./images/book2.jpg" alt="Card image cap">
+                <img style="max-height: 200px; object-fit: cover;" class="card-img-top" src="<%= locals.imgs.two[i]%>" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title"><%= locals.classes.two[i]  %></h5>
                   <p class="card-text"><%= locals.authors.two[i]  %></p>
-                  <h3 style="color: rgb(122, 13, 13);"><%= locals.prices.two[i] %>$</h3>
+                  <h3 style="color: rgb(122, 13, 13);">₹<%= locals.prices.two[i] %></h3>
                   <a href="#"  data-name="<%= locals.classes.two[i]%>" data-price="<%= locals.prices.two[i]%>" class="btn btn-success buy" style="width: 70px;">Buy</a>
                 </div>
             </div>

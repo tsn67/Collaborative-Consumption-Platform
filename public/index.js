@@ -29,11 +29,11 @@ document.querySelector('.div-move').addEventListener('click', function() {
 var buttonLog = $(".btn-log");
 
 buttonLog.click(() => {
-    window.location.href = "./login?data=login-required";
+    window.location.href = "/login?data=login-required";
 });
 
 $(".btn-log-org").click(() => {
-    window.location.href = "./login";
+    window.location.href = "/login";
 });
 
 
@@ -41,3 +41,4 @@ var button = $("span");
 button.click(() => {
     window.location.href = "/profile-view";
 });
+

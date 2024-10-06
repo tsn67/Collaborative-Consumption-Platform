@@ -228,9 +228,19 @@ app.get("/filter", (req, res) => {
 }); 
 
 app.get("/filter-submit", (req, res) => {
-    console.log(req.query.data);
-    var obj = JSON.parse(req.query.data);
+    var obj = {
+      select: ["Education", "Romance", "Science fiction"]
+    }
+    
+   
 
+    if(req.query.author) {
+      class1.push(req.query.title);
+      author1.push(req.query.author);
+      price1.push(req.query.price);  
+    }
+
+    
     res.render("fictionpage.ejs", {
         list: obj.select,
         classes: {
@@ -250,6 +260,8 @@ app.get("/filter-submit", (req, res) => {
         },
         imgs: {
             one: img1,
+            two: img2,
+            three: img3
         }
 
     });
@@ -260,15 +272,17 @@ var class1 = ["FLAT", "Education for better future", "Wings of fire"];
 var author1 = ["Hannon", "Macabae", "APJ Abdul Kalam"];
 var price1 = [120, 220, 400];
 
-var class2 = ["Love and Drama", "Tetoyo", "Juliet"];
-var author2 = ["William Armstrong", "Kurso Yanaki", "Casio Dravo"];
+var class2 = ["It ends with us", "Love or Obsession", "A touch of Eternity"];
+var author2 = ["William Armstrong", "Hia Mehta", "Durjoy Datta"];
 var price2 = [170, 620, 200];
 
 var class3 = ["Rocketry", "Space", "Luna-11"];
 var author3 = ["Dr Ram M", "Jhon Martin", "Maveyo Kalo"];
 var price3 = [570, 90, 300];
 
-var img1 = ["./images/book1.jpg", "./images/book2.jpg", "./images/book3.jpg"];
+var img1 = ["./images/book1.jpg", "./images/book2.jpg", "./images/wings.jpg"];
+var img3 = ["./images/atomic.jpg", "./images/bookTemp.jpg", "./images/dune.jpg"];
+var img2 = ["./images/itends.jpg", "./images/loveor.jpg", "./images/atouch.jpg"];
 
 app.get("/buy", (req, res)=> {
     var price = req.query.money;
@@ -278,4 +292,12 @@ app.get("/buy", (req, res)=> {
         money: price,
         name: bookName,
     });
+});
+
+app.get("/sell", (req, res) => {
+    res.render("sell.ejs");
+});
+
+app.get("/donate", (req, res) => {
+    res.render("partywear.ejs");
 });
